@@ -1,0 +1,68 @@
+{
+  "kind": "build_request",
+  "title": "Increase Monthly Electricity Bill input limit to 1 lakh in calculator",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Update the Solar Savings Calculator so the maximum selectable/enterable value for the \"Monthly Electricity Bill\" input is 100,000 (1 lakh) instead of the current 50,000, and ensure the UI consistently reflects the new max across the slider range and the displayed min/max labels.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Increase the monthly bill to 1 lakh limit",
+          "you have calcilator where limit is only 50000 i want 1 lakh pls see and check"
+        ]
+      },
+      "acceptanceCriteria": [
+        "In frontend/src/components/SolarCalculator.tsx, the Monthly Electricity Bill slider max is 100000.",
+        "The max range label shown next to the Monthly Electricity Bill slider displays ₹100,000 (or formatted as ₹1,00,000) instead of ₹50,000.",
+        "Dragging the Monthly Electricity Bill slider can reach 100,000 and the displayed bill value updates accordingly."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add validation/clamping for manual numeric entry of the Monthly Electricity Bill so that the value cannot go below the slider minimum (1,000) or above the new maximum (100,000), and ensure invalid/empty input does not break calculations (no NaN/Infinity shown).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Monthly electricity bill .",
+          "Increase the monthly bill to 1 lakh limit"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Typing a value greater than 100,000 in the Monthly Bill number input results in the state/value being clamped to 100,000.",
+        "Typing a value lower than 1,000 results in the state/value being clamped to 1,000.",
+        "If the Monthly Bill input is cleared and then blurred/changed, the calculator returns to a valid numeric value and the results section does not display NaN/Infinity."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit any files under frontend/src/components/ui or any paths listed as immutable in SYSTEM_CONTEXT.",
+    "Keep all changes within the existing React + TypeScript + Tailwind setup; do not introduce new frameworks or external services."
+  ],
+  "nonGoals": [
+    "Do not change the roof area min/max values or behavior.",
+    "Do not change the savings calculation formulas, electricity rate, or city list beyond what is necessary to support the new monthly bill limit.",
+    "No backend/canister changes are required for this request."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

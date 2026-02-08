@@ -1,0 +1,341 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.625rem;
+        --animation-duration: 1s;
+        /* Dark theme with gold accents - default */
+        --background: 0.12 0.02 0;
+        --foreground: 0.98 0 0;
+        --card: 0.18 0.02 0;
+        --card-foreground: 0.98 0 0;
+        --popover: 0.15 0.02 0;
+        --popover-foreground: 0.98 0 0;
+        --primary: 0.78 0.16 85;
+        --primary-foreground: 0.08 0 0;
+        --secondary: 0.25 0.02 0;
+        --secondary-foreground: 0.98 0 0;
+        --muted: 0.25 0.02 0;
+        --muted-foreground: 0.70 0 0;
+        --accent: 0.30 0.02 0;
+        --accent-foreground: 0.98 0 0;
+        --destructive: 0.62 0.22 27;
+        --destructive-foreground: 0.98 0 0;
+        --border: 0.30 0.02 0;
+        --input: 0.30 0.02 0;
+        --ring: 0.78 0.16 85;
+        --chart-1: 0.78 0.16 85;
+        --chart-2: 0.88 0.20 75;
+        --chart-3: 0.68 0.14 95;
+        --chart-4: 0.73 0.16 80;
+        --chart-5: 0.83 0.18 70;
+        --sidebar: 0.18 0.02 0;
+        --sidebar-foreground: 0.98 0 0;
+        --sidebar-primary: 0.78 0.16 85;
+        --sidebar-primary-foreground: 0.08 0 0;
+        --sidebar-accent: 0.25 0.02 0;
+        --sidebar-accent-foreground: 0.98 0 0;
+        --sidebar-border: 0.30 0.02 0;
+        --sidebar-ring: 0.78 0.16 85;
+        
+        /* Gold and solar-yellow accents for dark mode */
+        --gold: 0.78 0.16 85;
+        --solar-yellow: 0.88 0.20 75;
+    }
+
+    .dark {
+        --background: 0.12 0.02 0;
+        --foreground: 0.98 0 0;
+        --card: 0.18 0.02 0;
+        --card-foreground: 0.98 0 0;
+        --popover: 0.15 0.02 0;
+        --popover-foreground: 0.98 0 0;
+        --primary: 0.78 0.16 85;
+        --primary-foreground: 0.08 0 0;
+        --secondary: 0.25 0.02 0;
+        --secondary-foreground: 0.98 0 0;
+        --muted: 0.25 0.02 0;
+        --muted-foreground: 0.70 0 0;
+        --accent: 0.30 0.02 0;
+        --accent-foreground: 0.98 0 0;
+        --destructive: 0.62 0.22 27;
+        --destructive-foreground: 0.98 0 0;
+        --border: 0.30 0.02 0;
+        --input: 0.30 0.02 0;
+        --ring: 0.78 0.16 85;
+        --chart-1: 0.78 0.16 85;
+        --chart-2: 0.88 0.20 75;
+        --chart-3: 0.68 0.14 95;
+        --chart-4: 0.73 0.16 80;
+        --chart-5: 0.83 0.18 70;
+        --sidebar: 0.18 0.02 0;
+        --sidebar-foreground: 0.98 0 0;
+        --sidebar-primary: 0.78 0.16 85;
+        --sidebar-primary-foreground: 0.08 0 0;
+        --sidebar-accent: 0.25 0.02 0;
+        --sidebar-accent-foreground: 0.98 0 0;
+        --sidebar-border: 0.30 0.02 0;
+        --sidebar-ring: 0.78 0.16 85;
+        
+        /* Gold and solar-yellow accents for dark mode */
+        --gold: 0.78 0.16 85;
+        --solar-yellow: 0.88 0.20 75;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-display: swap;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Performance optimization: GPU acceleration for animations */
+    .animate-fade-in-up,
+    .animate-fade-in,
+    .animate-slide-in-left,
+    .animate-slide-in-right,
+    .animate-float,
+    .animate-pulse-glow {
+        will-change: transform, opacity;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+    }
+
+    /* Respect user's motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+
+    /* Optimize for high-DPI displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        body {
+            -webkit-font-smoothing: subpixel-antialiased;
+        }
+    }
+}
+
+@layer utilities {
+    .text-gold {
+        color: oklch(var(--gold));
+    }
+    .bg-gold {
+        background-color: oklch(var(--gold));
+    }
+    .text-solar-yellow {
+        color: oklch(var(--solar-yellow));
+    }
+    .bg-solar-yellow {
+        background-color: oklch(var(--solar-yellow));
+    }
+    .border-gold {
+        border-color: oklch(var(--gold));
+    }
+    .border-solar-yellow {
+        border-color: oklch(var(--solar-yellow));
+    }
+    
+    /* Performance utilities */
+    .gpu-accelerated {
+        transform: translateZ(0);
+        will-change: transform;
+    }
+    
+    .optimize-rendering {
+        contain: layout style paint;
+    }
+
+    /* Image optimization utilities */
+    .optimize-image {
+        content-visibility: auto;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Custom animations - optimized for performance with GPU acceleration */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translate3d(-50px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(50px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -20px, 0);
+    }
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Parallax effect - optimized with GPU acceleration */
+.parallax-bg {
+    transform: translateZ(-1px) scale(2);
+    will-change: transform;
+}
+
+/* Hover effects - optimized with GPU acceleration */
+.hover-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.hover-lift:hover {
+    transform: translate3d(0, -8px, 0);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+}
+
+.hover-glow {
+    transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 30px oklch(var(--gold) / 0.5);
+    transform: scale(1.02);
+}
+
+/* Light flare effect - optimized with reduced complexity */
+.light-flare {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, oklch(var(--solar-yellow) / 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    animation: float 4s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* Image optimization for faster loading */
+img {
+    content-visibility: auto;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Lazy loading optimization */
+img[loading="lazy"] {
+    content-visibility: auto;
+}
+
+/* Shadow utilities for gold glow effects */
+.shadow-gold-glow {
+    box-shadow: 0 0 20px oklch(var(--gold) / 0.4);
+}
+
+.shadow-yellow-glow {
+    box-shadow: 0 0 20px oklch(var(--solar-yellow) / 0.4);
+}
+
+/* Print styles for better printing */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+}
+
+/* Connection-aware loading */
+@media (prefers-reduced-data: reduce) {
+    img {
+        image-rendering: pixelated;
+    }
+}

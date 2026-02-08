@@ -1,0 +1,39 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Raise Monthly Electricity Bill input cap to ₹100,000 and harden manual entry validation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Increase Monthly Electricity Bill slider maximum to ₹100,000 and update the displayed range labels to match.",
+      "acceptanceCriteria": [
+        "In frontend/src/components/SolarCalculator.tsx, the Monthly Electricity Bill slider max is 100000.",
+        "The max range label shown next to the Monthly Electricity Bill slider displays ₹100,000 (or formatted as ₹1,00,000) instead of ₹50,000.",
+        "Dragging the Monthly Electricity Bill slider can reach 100,000 and the displayed bill value updates accordingly."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/SolarCalculator.tsx",
+          "operation": "modify",
+          "description": "Update the Monthly Electricity Bill Slider configuration to use max=100000 (was 50000) and ensure the UI min/max labels adjacent to the slider reflect the same updated maximum (formatted consistently with existing locale formatting). Keep all other calculator logic and non-bill inputs unchanged."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Clamp/validate manual Monthly Electricity Bill numeric entry to [₹1,000, ₹100,000] and prevent invalid/empty input from producing NaN/Infinity in results.",
+      "acceptanceCriteria": [
+        "Typing a value greater than 100,000 in the Monthly Bill number input results in the state/value being clamped to 100,000.",
+        "Typing a value lower than 1,000 results in the state/value being clamped to 1,000.",
+        "If the Monthly Bill input is cleared and then blurred/changed, the calculator returns to a valid numeric value and the results section does not display NaN/Infinity."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/SolarCalculator.tsx",
+          "operation": "modify",
+          "description": "Add a dedicated clamp/parse helper for monthlyBill (min 1000, max 100000) and apply it to both slider and manual number input updates. Ensure empty string or non-numeric values do not get committed as NaN (e.g., treat empty as min or last valid value on blur) so derived calculations never render NaN/Infinity. Add appropriate min/max attributes to the Monthly Bill numeric <Input> to match the slider bounds."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-the-solar-savings-calculator-so-the-maximum-selectable-enterable-value-for-the-monthly-electricity-bill-input-is-100-000-1-lakh-instead-of-the-current-50-000-and-ensure-the-ui-consistently-reflects-the-new-max-across-the-slider-range-and-the-displayed-min-max-labels",
+      "featureTitle": "Update the Solar Savings Calculator so the maximum selectable/enterable value for the \"Monthly Electricity Bill\" input is 100,000 (1 lakh) instead of the current 50,000, and ensure the UI consistently reflects the new max across the slider range and the displayed min/max labels.",
+      "files": [
+        "frontend/src/components/SolarCalculator.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "qr-code@1.0.0",
+        "camera@1.0.0",
+        "http-outcalls@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-validation-clamping-for-manual-numeric-entry-of-the-monthly-electricity-bill-so-that-the-value-cannot-go-below-the-slider-minimum-1-000-or-above-the-new-maximum-100-000-and-ensure-invalid-empty-input-does-not-break-calculations-no-nan-infinity-shown",
+      "featureTitle": "Add validation/clamping for manual numeric entry of the Monthly Electricity Bill so that the value cannot go below the slider minimum (1,000) or above the new maximum (100,000), and ensure invalid/empty input does not break calculations (no NaN/Infinity shown).",
+      "files": [
+        "frontend/src/components/SolarCalculator.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "qr-code@1.0.0",
+        "camera@1.0.0",
+        "http-outcalls@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

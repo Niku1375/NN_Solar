@@ -1,0 +1,49 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-08T14:16:02.057Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 2,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Update the Solar Savings Calculator so the maximum selectable/enterable value for the \"Monthly Electricity Bill\" input is 100,000 (1 lakh) instead of the current 50,000, and ensure the UI consistently reflects the new max across the slider range and the displayed min/max labels.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/SolarCalculator.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/SolarCalculator.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Add validation/clamping for manual numeric entry of the Monthly Electricity Bill so that the value cannot go below the slider minimum (1,000) or above the new maximum (100,000), and ensure invalid/empty input does not break calculations (no NaN/Infinity shown).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/SolarCalculator.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/SolarCalculator.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/SolarCalculator.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

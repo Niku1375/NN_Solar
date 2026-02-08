@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build an electricity bill calculator and increase its maximum limit from 50,000 to 1,00,000 (1 lakh).",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-update-the-solar-savings-calculator-so-the-maximum-selectable-enterable-value-for-the-monthly-electricity-bill-input-is-100-000-1-lakh-instead-of-the-current-50-000-and-ensure-the-ui-consistently-reflects-the-new-max-across-the-slider-range-and-the-displayed-min-max-labels",
+      "title": "Update the Solar Savings Calculator so the maximum selectable/enterable value for the \"Monthly Electricity Bill\" input is 100,000 (1 lakh) instead of the current 50,000, and ensure the UI consistently reflects the new max across the slider range and the displayed min/max labels.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-validation-clamping-for-manual-numeric-entry-of-the-monthly-electricity-bill-so-that-the-value-cannot-go-below-the-slider-minimum-1-000-or-above-the-new-maximum-100-000-and-ensure-invalid-empty-input-does-not-break-calculations-no-nan-infinity-shown",
+      "title": "Add validation/clamping for manual numeric entry of the Monthly Electricity Bill so that the value cannot go below the slider minimum (1,000) or above the new maximum (100,000), and ensure invalid/empty input does not break calculations (no NaN/Infinity shown).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Increase electricity bill calculator limit from 50,000 to 1,00,000 (1 lakh)",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Increase Monthly Electricity Bill input limit to 1 lakh in calculator",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
