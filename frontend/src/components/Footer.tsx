@@ -131,18 +131,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gold/20 pt-8 text-center text-muted-foreground">
-          <p className="flex items-center justify-center gap-2 flex-wrap">
-            © 2025 NN SOLAR ENERGY. Built with <Heart className="w-4 h-4 text-gold fill-gold animate-pulse" /> using{' '}
-            <a
-              href="https://caffeine.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gold hover:text-solar-yellow transition-colors font-medium hover:underline"
-            >
-              caffeine.ai
-            </a>
-          </p>
+        <div className="mt-8 border-t border-gold/20 pt-8 text-center text-sm text-muted-foreground">
+          <p>&copy; {new Date().getFullYear()} NN Enterprises. All rights reserved.</p>
         </div>
       </div>
     </footer>
