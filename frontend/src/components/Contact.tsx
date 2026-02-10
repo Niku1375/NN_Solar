@@ -6,7 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Phone, MapPin, Loader2, Clock, MessageCircle } from 'lucide-react';
-import { useSubmitContactForm } from '../hooks/useQueries';
+// import { useSubmitContactForm } from '../hooks/useQueries'; // Removed custom hook
 import { toast } from 'sonner';
 
 export function Contact() {
@@ -19,6 +19,8 @@ export function Contact() {
     monthlyBill: '',
     message: '',
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false); // New loading state
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -43,8 +45,6 @@ export function Contact() {
     };
   }, []);
 
-  const submitMutation = useSubmitContactForm();
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -53,36 +53,55 @@ export function Contact() {
       return;
     }
 
+    setIsSubmitting(true);
+
     try {
-      // Combine all form data into message for backend
-      const fullMessage = `
-Service Interest: ${formData.serviceInterest || 'Not specified'}
-Roof Area: ${formData.roofArea || 'Not specified'} sq ft
-Monthly Bill: ₹${formData.monthlyBill || 'Not specified'}
-
-Message:
-${formData.message}
-      `.trim();
-
-      await submitMutation.mutateAsync({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        message: fullMessage,
-      });
+      // 1. Create FormData object for Web3Forms
+      const data = new FormData();
       
-      toast.success('Thank you! We\'ll get back to you within 24 hours.');
-      setFormData({ 
-        name: '', 
-        email: '', 
-        phone: '', 
-        serviceInterest: '',
-        roofArea: '',
-        monthlyBill: '',
-        message: '' 
+      // ---------------------------------------------------------
+      // PASTE YOUR WEB3FORMS ACCESS KEY HERE
+      data.append("access_key", "6f3ed1d8-f1f2-4a5b-8dc1-d2f510b89a3e"); 
+      // ---------------------------------------------------------
+
+      data.append("name", formData.name);
+      data.append("email", formData.email);
+      data.append("phone", formData.phone);
+      data.append("service_interest", formData.serviceInterest || 'Not specified');
+      data.append("roof_area", formData.roofArea ? `${formData.roofArea} sq ft` : 'Not specified');
+      data.append("monthly_bill", formData.monthlyBill ? `₹${formData.monthlyBill}` : 'Not specified');
+      data.append("message", formData.message);
+
+      // Optional: Add a subject line for the email you receive
+      data.append("subject", "New Solar Quote Request from Website");
+
+      // 2. Send to Web3Forms API
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data
       });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast.success('Thank you! We\'ll get back to you within 24 hours.');
+        // Reset form
+        setFormData({ 
+          name: '', 
+          email: '', 
+          phone: '', 
+          serviceInterest: '',
+          roofArea: '',
+          monthlyBill: '',
+          message: '' 
+        });
+      } else {
+        toast.error(result.message || 'Something went wrong. Please try again.');
+      }
     } catch (error) {
-      toast.error('Failed to submit form. Please try again.');
+      toast.error('Failed to submit form. Please check your connection.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -230,9 +249,9 @@ ${formData.message}
                   <Button
                     type="submit"
                     className="w-full bg-gradient-to-r from-gold to-solar-yellow hover:from-solar-yellow hover:to-gold text-black font-bold transition-all duration-300 hover:shadow-gold-glow"
-                    disabled={submitMutation.isPending}
+                    disabled={isSubmitting}
                   >
-                    {submitMutation.isPending ? (
+                    {isSubmitting ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                         Sending...
