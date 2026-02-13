@@ -123,7 +123,7 @@ export function WhyChooseUs() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="why-choose-us" className="py-20 md:py-32 bg-background relative overflow-hidden">
+    <section ref={sectionRef} id="why-choose-us" className="py-12 md:py-16 bg-background relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/2 right-0 w-96 h-96 bg-solar-yellow/10 rounded-full blur-3xl" />

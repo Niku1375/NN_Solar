@@ -109,7 +109,7 @@ export function SolarCalculator() {
   };
 
   return (
-    <section ref={sectionRef} id="calculator" className="py-20 md:py-32 bg-gradient-to-b from-background to-background/50 relative overflow-hidden">
+    <section ref={sectionRef} id="calculator" className="py-12 md:py-16 bg-gradient-to-b from-background to-background/50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-solar-yellow/10 rounded-full blur-3xl" />

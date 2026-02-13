@@ -93,7 +93,7 @@ export function Testimonials() {
   const currentTestimonial = TESTIMONIALS[currentIndex];
 
   return (
-    <section ref={sectionRef} id="testimonials" className="py-20 md:py-32 bg-gradient-to-b from-background/50 to-background relative overflow-hidden">
+    <section ref={sectionRef} id="testimonials" className="py-12 md:py-16 bg-gradient-to-b from-background/50 to-background relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-1/2 right-0 w-96 h-96 bg-solar-yellow/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />

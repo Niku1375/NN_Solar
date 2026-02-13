@@ -27,7 +27,7 @@ export function Vision() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="vision" className="py-20 md:py-32 bg-gradient-to-b from-card/30 to-background relative overflow-hidden">
+    <section ref={sectionRef} id="vision" className="py-12 md:py-16 bg-gradient-to-b from-card/30 to-background relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-gold/10 to-solar-yellow/10 rounded-full blur-3xl" />
       

@@ -78,7 +78,7 @@ export function PMSuryaGhar() {
   };
 
   return (
-    <section ref={sectionRef} id="pm-surya-ghar" className="py-20 md:py-32 bg-gradient-to-b from-background via-card/20 to-background relative overflow-hidden">
+    <section ref={sectionRef} id="pm-surya-ghar" className="py-12 md:py-16 bg-gradient-to-b from-background via-card/20 to-background relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-solar-yellow/10 rounded-full blur-3xl" />
