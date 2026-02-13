@@ -64,9 +64,9 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center gap-3 group cursor-pointer" onClick={() => scrollToSection('home')}>
             <img 
-              src="/assets/generated/nn-solar-energy-logo-transparent.dim_200x200.png" 
+              src="/assets/generated/Logo.png" 
               alt="NN SOLAR ENERGY" 
-              className="h-12 w-12 transition-transform group-hover:scale-110 duration-300" 
+              className="h-20 w-auto transition-transform group-hover:scale-110 duration-300" 
             />
             <span className="text-xl font-bold bg-gradient-to-r from-gold to-solar-yellow bg-clip-text text-transparent">
               NN SOLAR ENERGY
