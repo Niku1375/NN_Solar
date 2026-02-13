@@ -45,7 +45,7 @@ export function Partners() {
   ];
 
   return (
-    <section ref={sectionRef} id="partners" className="py-20 md:py-32 bg-gradient-to-b from-background to-card/30 relative overflow-hidden">
+    <section ref={sectionRef} id="partners" className="py-12 md:py-16 bg-gradient-to-b from-background to-card/30 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-gold/5 to-solar-yellow/5 rounded-full blur-3xl" />
       

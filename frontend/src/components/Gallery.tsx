@@ -99,7 +99,7 @@ export function Gallery() {
   };
 
   return (
-    <section ref={sectionRef} id="gallery" className="py-20 md:py-32 bg-gradient-to-b from-card/30 to-background relative overflow-hidden">
+    <section ref={sectionRef} id="gallery" className="py-12 md:py-16 bg-gradient-to-b from-card/30 to-background relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" aria-hidden="true" />
       
