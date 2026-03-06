@@ -301,12 +301,6 @@ export function Contact() {
                     <p className="font-semibold text-foreground">Email</p>
                     <div className="text-muted-foreground space-y-1">
                       <a 
-                        href="mailto:nikunjgupta0029@gmail.com"
-                        className="hover:text-gold transition-colors block"
-                      >
-                        nikunjgupta0029@gmail.com
-                      </a>
-                      <a 
                         href="mailto:nnenterprises0029@gmail.com"
                         className="hover:text-gold transition-colors block"
                       >

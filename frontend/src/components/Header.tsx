@@ -47,10 +47,6 @@ export function Header() {
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4" />
               <div className="flex items-center gap-1">
-                <a href="mailto:nikunjgupta0029@gmail.com" className="hover:underline">
-                  nikunjgupta0029@gmail.com
-                </a>
-                <span>|</span>
                 <a href="mailto:nnenterprises0029@gmail.com" className="hover:underline">
                   nnenterprises0029@gmail.com
                 </a>
