@@ -13,7 +13,8 @@ export function Footer() {
     <footer className="bg-gradient-to-b from-card to-background border-t border-gold/20">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Company Info */}
+          
+          {/* Company Info & ISO Badge */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4 group cursor-pointer" onClick={() => scrollToSection('home')}>
               <img 
@@ -25,12 +26,13 @@ export function Footer() {
                 NN SOLAR ENERGY
               </span>
             </div>
-            <p className="text-muted-foreground mb-4">
+            <p className="text-muted-foreground mb-6 max-w-md">
               Leading provider of innovative solar solutions for residential and commercial clients. 
               Powering a sustainable future, one installation at a time.
             </p>
+            
             {/* Social Media Links */}
-            <div className="flex gap-4">
+            <div className="flex gap-4 mb-8">
               <a
                 href="https://www.facebook.com/people/NN-Enterprises-Solar-Energy/61586244603327/"
                 target="_blank"
@@ -56,17 +58,17 @@ export function Footer() {
                 <SiInstagram className="w-5 h-5" />
               </a>
             </div>
-          </div>
 
-          {/* ISO Certification Badge */}
-          <div className="inline-block bg-white/5 border border-gold/30 rounded-lg p-3 hover:bg-white/10 transition-colors">
-            <a href="/NN-Enterprises-ISO-9001.pdf" target="_blank" rel="noopener noreferrer" className="flex flex-col gap-1 cursor-pointer">
-              <div className="flex items-center gap-2">
-                <Shield className="w-5 h-5 text-gold" /> {/* Assuming you have Shield imported from lucide-react */}
-                <span className="font-bold text-gold text-sm tracking-wider">ISO 9001:2015 CERTIFIED</span>
-              </div>
-              <span className="text-xs text-gray-400">Quality Management System</span>
-            </a>
+            {/* ISO Certification Badge (Moved inside the column) */}
+            <div className="inline-block bg-white/5 border border-gold/30 rounded-lg p-3 hover:bg-white/10 transition-colors">
+              <a href="/NN-Enterprises-ISO-9001.pdf" target="_blank" rel="noopener noreferrer" className="flex flex-col gap-1 cursor-pointer group">
+                <div className="flex items-center gap-2">
+                  <Shield className="w-5 h-5 text-gold group-hover:scale-110 transition-transform" /> 
+                  <span className="font-bold text-gold text-sm tracking-wider">ISO 9001:2015 CERTIFIED</span>
+                </div>
+                <span className="text-xs text-muted-foreground group-hover:text-gray-300 transition-colors">Quality Management System</span>
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -89,45 +91,40 @@ export function Footer() {
           {/* Contact Info */}
           <div>
             <h3 className="font-bold text-lg mb-4 text-gold">Contact</h3>
-            <ul className="space-y-3 text-muted-foreground">
-              <li className="flex items-start gap-2 group">
-                <Phone className="w-4 h-4 mt-1 flex-shrink-0 text-gold group-hover:scale-110 transition-transform" />
-                <div className="space-y-1">
-                  <p className="hover:text-gold transition-colors cursor-pointer flex items-center gap-1.5">
-                    <Phone className="w-3 h-3 text-gold" />
-                    9810715231
-                  </p>
-                  <p className="hover:text-gold transition-colors cursor-pointer flex items-center gap-1.5">
-                    <Phone className="w-3 h-3 text-gold" />
-                    9810384584
-                  </p>
-                  <p className="hover:text-gold transition-colors cursor-pointer flex items-center gap-1.5">
-                    <Phone className="w-3 h-3 text-gold" />
-                    8851013757
-                  </p>
+            <ul className="space-y-4 text-muted-foreground">
+              {/* Clickable Phone Numbers */}
+              <li className="flex items-start gap-3 group">
+                <Phone className="w-5 h-5 mt-0.5 flex-shrink-0 text-gold group-hover:scale-110 transition-transform" />
+                <div className="flex flex-col gap-1.5">
+                  <a href="tel:+919810715231" className="hover:text-gold transition-colors block">9810715231</a>
+                  <a href="tel:+919810384584" className="hover:text-gold transition-colors block">9810384584</a>
+                  <a href="tel:+918851013757" className="hover:text-gold transition-colors block">8851013757</a>
                 </div>
               </li>
-              <li className="flex items-start gap-2 group">
-                <Mail className="w-4 h-4 mt-1 flex-shrink-0 text-gold group-hover:scale-110 transition-transform" />
-                <div className="space-y-1">
-                  <a 
-                    href="mailto:nnenterprises0029@gmail.com"
-                    className="hover:text-gold transition-colors break-all block"
-                  >
+              
+              {/* Clickable Emails */}
+              <li className="flex items-start gap-3 group">
+                <Mail className="w-5 h-5 mt-0.5 flex-shrink-0 text-gold group-hover:scale-110 transition-transform" />
+                <div className="flex flex-col gap-1.5">
+                  <a href="mailto:nnenterprises0029@gmail.com" className="hover:text-gold transition-colors break-all block">
                     nnenterprises0029@gmail.com
                   </a>
                 </div>
               </li>
-              <li className="flex items-start gap-2 group">
-                <MapPin className="w-4 h-4 mt-1 flex-shrink-0 text-gold group-hover:scale-110 transition-transform" />
-                <div>
+              
+              {/* Address */}
+              <li className="flex items-start gap-3 group">
+                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-gold group-hover:scale-110 transition-transform" />
+                <div className="leading-relaxed">
                   <p>House 11, Block 8,</p>
                   <p>Roop Nagar Basement</p>
                 </div>
               </li>
-              <li className="flex items-start gap-2 group">
-                <Clock className="w-4 h-4 mt-1 flex-shrink-0 text-gold group-hover:scale-110 transition-transform" />
-                <div>
+              
+              {/* Business Hours */}
+              <li className="flex items-start gap-3 group">
+                <Clock className="w-5 h-5 mt-0.5 flex-shrink-0 text-gold group-hover:scale-110 transition-transform" />
+                <div className="leading-relaxed">
                   <p className="font-semibold text-foreground mb-1">Business Hours</p>
                   <p>Monday - Saturday: 9 AM - 6 PM</p>
                   <p>Sunday: Closed</p>
@@ -135,6 +132,7 @@ export function Footer() {
               </li>
             </ul>
           </div>
+
         </div>
 
         <div className="mt-8 border-t border-gold/20 pt-8 text-center text-sm text-muted-foreground">
