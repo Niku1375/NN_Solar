@@ -31,7 +31,7 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/people/NN-Enterprises-Solar-Energy/61586244603327/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gold/10 border border-gold/30 rounded-full flex items-center justify-center hover:bg-gradient-to-br hover:from-gold hover:to-solar-yellow hover:text-black transition-all duration-300 hover:scale-110"
@@ -39,7 +39,7 @@ export function Footer() {
                 <SiFacebook className="w-5 h-5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/nikunj-gupta024/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gold/10 border border-gold/30 rounded-full flex items-center justify-center hover:bg-gradient-to-br hover:from-gold hover:to-solar-yellow hover:text-black transition-all duration-300 hover:scale-110"
@@ -47,7 +47,7 @@ export function Footer() {
                 <SiLinkedin className="w-5 h-5" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/nnsolar0029/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gold/10 border border-gold/30 rounded-full flex items-center justify-center hover:bg-gradient-to-br hover:from-gold hover:to-solar-yellow hover:text-black transition-all duration-300 hover:scale-110"
