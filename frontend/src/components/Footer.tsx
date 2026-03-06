@@ -1,5 +1,5 @@
 import { SiFacebook, SiLinkedin, SiInstagram } from 'react-icons/si';
-import { Heart, Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Heart, Phone, Mail, MapPin, Clock, Shield } from 'lucide-react';
 
 export function Footer() {
   const scrollToSection = (id: string) => {
@@ -29,6 +29,7 @@ export function Footer() {
               Leading provider of innovative solar solutions for residential and commercial clients. 
               Powering a sustainable future, one installation at a time.
             </p>
+            {/* Social Media Links */}
             <div className="flex gap-4">
               <a
                 href="https://www.facebook.com/people/NN-Enterprises-Solar-Energy/61586244603327/"
@@ -55,6 +56,17 @@ export function Footer() {
                 <SiInstagram className="w-5 h-5" />
               </a>
             </div>
+          </div>
+
+          {/* ISO Certification Badge */}
+          <div className="inline-block bg-white/5 border border-gold/30 rounded-lg p-3 hover:bg-white/10 transition-colors">
+            <a href="/NN-Enterprises-ISO-9001.pdf" target="_blank" rel="noopener noreferrer" className="flex flex-col gap-1 cursor-pointer">
+              <div className="flex items-center gap-2">
+                <Shield className="w-5 h-5 text-gold" /> {/* Assuming you have Shield imported from lucide-react */}
+                <span className="font-bold text-gold text-sm tracking-wider">ISO 9001:2015 CERTIFIED</span>
+              </div>
+              <span className="text-xs text-gray-400">Quality Management System</span>
+            </a>
           </div>
 
           {/* Quick Links */}
@@ -98,12 +110,6 @@ export function Footer() {
               <li className="flex items-start gap-2 group">
                 <Mail className="w-4 h-4 mt-1 flex-shrink-0 text-gold group-hover:scale-110 transition-transform" />
                 <div className="space-y-1">
-                  <a 
-                    href="mailto:nikunjgupta0029@gmail.com"
-                    className="hover:text-gold transition-colors break-all block"
-                  >
-                    nikunjgupta0029@gmail.com
-                  </a>
                   <a 
                     href="mailto:nnenterprises0029@gmail.com"
                     className="hover:text-gold transition-colors break-all block"
