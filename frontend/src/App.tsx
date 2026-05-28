@@ -15,6 +15,9 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { WhatsAppChatButton } from './components/WhatsAppChatButton';
 import { Toaster } from '@/components/ui/sonner';
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { trackPageView } from "./lib/analytics";
 
 export default function App() {
   useEffect(() => {
@@ -29,6 +32,10 @@ export default function App() {
       '/assets/generated/solar-hero-banner.dim_1200x600.jpg',
       '/assets/generated/nn-enterprises-logo-transparent.dim_200x200.png'
     ];
+    const location = useLocation();
+    useEffect(() => {
+      trackPageView(location.pathname);
+    }, [location]);
 
     criticalImages.forEach(src => {
       const link = document.createElement('link');
