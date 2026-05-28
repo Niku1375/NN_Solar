@@ -6,14 +6,14 @@ export function initializeGA4(measurementId: string): void {
     return;
   }
 
-  // prevent double init
   if ((window as any).__GA_INITIALIZED__) return;
   (window as any).__GA_INITIALIZED__ = true;
 
+  // IMPORTANT: real GA pattern
   window.dataLayer = window.dataLayer || [];
 
   function gtag(...args: any[]) {
-    window.dataLayer!.push(args);
+    window.dataLayer!.push(arguments);
   }
 
   window.gtag = gtag;
@@ -34,7 +34,7 @@ export function initializeGA4(measurementId: string): void {
 
 export function trackPageView(path: string) {
   if (window.gtag) {
-    window.gtag("config", "G-D9MY50NYC4", {
+    window.gtag("config", import.meta.env.VITE_GA_ID, {
       page_path: path,
     });
   }
