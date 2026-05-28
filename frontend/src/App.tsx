@@ -23,14 +23,19 @@ import { trackPageView } from "./lib/analytics";
 export default function App() {
   const location = useLocation();
 
-  // SPA PAGE TRACKING (FIXED)
+  // SPA PAGE TRACKING (SAFE VERSION)
   useEffect(() => {
-    trackPageView(location.pathname);
-  }, [location]);
+    const timeout = setTimeout(() => {
+      trackPageView(location.pathname);
+    }, 500);
 
-  // OTHER APP LOGIC (RUN ONLY ONCE)
+    return () => clearTimeout(timeout);
+  }, [location.pathname]);
+
+  // OTHER APP LOGIC (RUN ONCE)
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
     if (mediaQuery.matches) {
       document.documentElement.style.setProperty(
         "--animation-duration",
@@ -70,13 +75,12 @@ export default function App() {
         });
 
         observer.observe({ entryTypes: ["navigation"] });
-      } catch (e) {}
+      } catch (e) {
+        // ignore silently
+      }
     }
 
-    if (
-      "serviceWorker" in navigator &&
-      import.meta.env.PROD
-    ) {
+    if ("serviceWorker" in navigator && import.meta.env.PROD) {
       window.addEventListener("load", () => {
         navigator.serviceWorker.register("/sw.js").catch(() => {});
       });
