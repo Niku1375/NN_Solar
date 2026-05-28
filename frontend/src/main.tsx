@@ -1,25 +1,27 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { initializeGA4 } from './lib/analytics'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
 
-// Create a client
-const queryClient = new QueryClient()
+import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { initializeGA4 } from "./lib/analytics";
 
-// Initialize Google Analytics 4
-const gaId = import.meta.env.VITE_GA_ID
+const queryClient = new QueryClient();
+
+const gaId = import.meta.env.VITE_GA_ID;
 if (gaId) {
-  initializeGA4(gaId)
+  initializeGA4(gaId);
 } else {
-  console.warn('VITE_GA_ID environment variable is not set')
+  console.warn("VITE_GA_ID environment variable is not set");
 }
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
-  </React.StrictMode>,
-)
+    <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
+    </BrowserRouter>
+  </React.StrictMode>
+);
